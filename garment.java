@@ -2,6 +2,7 @@
 //importing list and array list
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -14,6 +15,16 @@ class Garment {
     public String color;
     public double price;
     public int stockQuantity;
+
+    public Garment(String id, String name, String description, String size, String color, double price, int stockQuantity) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.size = size;
+        this.color = color;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
 
     void updateStock(int quantity) {
         this.stockQuantity = quantity;
@@ -111,8 +122,9 @@ class Inventory {
         garments.add(garment);
     }
 
+    
     void removeGarment(String id) {
-        garments.remove(id);
+        // garments.remove(id);
     }
 
     Garment findGarment(String id) {
@@ -127,13 +139,38 @@ class Inventory {
 public class garment{
 
     public static void main(String[] args) {
-        Garment g1 = new Garment();
-        g1.name = "Silk";
-        g1.description = "Good Product";
-        g1.price= 600;
+        
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Garment ID: ");
+        String id = scanner.nextLine();
+
+        System.out.print("Enter Garment Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter Description: ");
+        String description = scanner.nextLine();
+
+        System.out.print("Enter Size: ");
+        String size = scanner.nextLine();
+
+        System.out.print("Enter Color: ");
+        String color = scanner.nextLine();
+
+        System.out.print("Enter Price: ");
+        double price = scanner.nextDouble();
+
+        System.out.print("Enter Stock Quantity: ");
+        int stockQuantity = scanner.nextInt();
+
+        
+        Garment g1 = new Garment(id, name, description, size, color, price, stockQuantity);
+        
         double x = g1.calculateDiscountPrice(10);
         System.out.println(x);
 
+        
+        scanner.close();
     }
 
 }
