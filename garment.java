@@ -6,6 +6,80 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Date;
 
+public class garment{
+
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+
+        // fabric
+        System.out.print("Enter Fabric ID: ");
+        String fabricId = scanner.nextLine();
+        System.out.print("Enter Fabric Type: ");
+        String fabricType = scanner.nextLine();
+        System.out.print("Enter Fabric Color: ");
+        String fabricColor = scanner.nextLine();
+        System.out.print("Enter Fabric Price per Meter: ");
+        double pricePerMeter = scanner.nextDouble();
+        System.out.println("--------------------------");
+        scanner.nextLine();
+        // fabric object
+        Fabric fabric = new Fabric(fabricId, fabricType, fabricColor, pricePerMeter);
+
+        //garment
+        System.out.print("Enter Garment ID: ");
+        String garmentId = scanner.nextLine();
+        System.out.print("Enter Garment Name: ");
+        String garmentName = scanner.nextLine();
+        System.out.print("Enter Garment Description: ");
+        String garmentDescription = scanner.nextLine();
+        System.out.print("Enter Garment Size: ");
+        String garmentSize = scanner.nextLine();
+        System.out.print("Enter Garment Color: ");
+        String garmentColor = scanner.nextLine();
+        System.out.print("Enter Garment Price: ");
+        double garmentPrice = scanner.nextDouble();
+        System.out.print("Enter Garment Stock Quantity: ");
+        int stockQuantity = scanner.nextInt();
+        System.out.println("--------------------------");
+        scanner.nextLine();
+
+        //garment object
+        Garment garment = new Garment(garmentId, garmentName, garmentDescription, garmentSize, garmentColor, garmentPrice, stockQuantity, fabric);
+
+        // customer
+        System.out.print("Enter Customer ID: ");
+        String customerId = scanner.nextLine();
+        System.out.print("Enter Customer Name: ");
+        String customerName = scanner.nextLine();
+        System.out.print("Enter Customer Email: ");
+        String customerEmail = scanner.nextLine();
+        System.out.print("Enter Customer Phone: ");
+        String customerPhone = scanner.nextLine();
+        System.out.println("--------------------------");
+        System.out.println("--------------------------");
+
+        // customer object
+        Customer customer = new Customer(customerId, customerName, customerEmail, customerPhone);
+
+        
+        System.out.print("Enter Order ID: ");
+        String orderId = scanner.nextLine();
+        Date orderDate = new Date();
+
+        Order order = new Order(orderId, orderDate);
+        order.addGarment(garment);
+
+        customer.placeOrder(order);
+
+        System.out.println("--------------------------");
+        order.printOrderDetails();
+        
+        scanner.close();
+    }
+
+}
+
 class Garment {
 
     public String id;
@@ -177,15 +251,3 @@ class Inventory {
     }
 }
 
-public class garment{
-
-    public static void main(String[] args) {
-        
-        Scanner scanner = new Scanner(System.in);
-
-        
-        
-        scanner.close();
-    }
-
-}
