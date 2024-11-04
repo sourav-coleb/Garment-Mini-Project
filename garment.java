@@ -15,8 +15,9 @@ class Garment {
     public String color;
     public double price;
     public int stockQuantity;
+    public Fabric fabric;
 
-    public Garment(String id, String name, String description, String size, String color, double price, int stockQuantity) {
+    public Garment(String id, String name, String description, String size, String color, double price, int stockQuantity, Fabric fabric) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -24,6 +25,7 @@ class Garment {
         this.color = color;
         this.price = price;
         this.stockQuantity = stockQuantity;
+        this.fabric = fabric;
     }
 
     void updateStock(int quantity) {
@@ -32,7 +34,7 @@ class Garment {
 
     double calculateDiscountPrice(double discountPercentage) {
         double discount = price * (discountPercentage / 100);
-        return discount;
+        return price - discount;
     }
 }
 
@@ -142,33 +144,7 @@ public class garment{
         
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter Garment ID: ");
-        String id = scanner.nextLine();
-
-        System.out.print("Enter Garment Name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter Description: ");
-        String description = scanner.nextLine();
-
-        System.out.print("Enter Size: ");
-        String size = scanner.nextLine();
-
-        System.out.print("Enter Color: ");
-        String color = scanner.nextLine();
-
-        System.out.print("Enter Price: ");
-        double price = scanner.nextDouble();
-
-        System.out.print("Enter Stock Quantity: ");
-        int stockQuantity = scanner.nextInt();
-
         
-        Garment g1 = new Garment(id, name, description, size, color, price, stockQuantity);
-        
-        double x = g1.calculateDiscountPrice(10);
-        System.out.println(x);
-
         
         scanner.close();
     }
