@@ -149,13 +149,23 @@ class Inventory {
 
     List<Garment> garments;
 
+    public Inventory() {
+        this.garments = new ArrayList<>();
+    }
+
     void addGarment(Garment garment) {
         garments.add(garment);
     }
 
     
     void removeGarment(String id) {
-        // garments.remove(id);
+        for (int i = 0; i < garments.size(); i++) {
+            Garment garment = garments.get(i);
+            if (garment.id == id) {
+                garments.remove(i);
+                break;
+            }
+        }
     }
 
     Garment findGarment(String id) {
