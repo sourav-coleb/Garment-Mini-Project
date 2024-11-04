@@ -125,15 +125,24 @@ class Customer {
     public String name;
     public String email;
     public String phone;
+    public List<Order> orders;
+
+    public Customer(String customerId, String name, String email, String phone) {
+        this.customerId = customerId;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.orders = new ArrayList<>();
+    }
 
     void placeOrder(Order order) {
         order.printOrderDetails();
         System.out.println("Order Placed");
     }
 
-//    List<Order> viewOrders() {
-//        
-//    }
+   public List<Order> viewOrders() {
+       return orders;
+   }
 }
 
 class Inventory {
